@@ -1,5 +1,6 @@
 import math
 import os
+import shutil
 
 print("-- Reading ARC material properties database")
 
@@ -17,6 +18,9 @@ mlab = respath + "/htrans"
 if not os.path.exists("Output"): os.makedirs("Output")
 if not os.path.exists(respath):  os.makedirs(respath)
 if not os.path.exists(mlab):  os.makedirs(mlab)
+
+#copy ARC_settings.py file into output folder
+shutil.copyfile('./ARCAD/ARC_settings.py', './Output/'+Name+'/ARC_settings.py')
 
 # Core geometry definition
 BelowCoreLength = BelowCoreLength + LowerReservoirUpperConnectorLength # [cm] The length from the bottom of the active core to the mid-section of the lower ARC reservoir
